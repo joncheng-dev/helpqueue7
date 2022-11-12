@@ -20,6 +20,7 @@ class TicketControl extends React.Component {
   handleAddingNewTicket = (newTicket) => {
     const updatedMainTicketList = this.state.mainTicketList.concat(newTicket);
     this.setState({
+      formShowing: false,
       mainTicketList: updatedMainTicketList,
     });
   };
@@ -32,7 +33,7 @@ class TicketControl extends React.Component {
       currentlyDisplaying = <NewTicketForm onClickingAddNewTicket={this.handleAddingNewTicket} />;
       buttonText = "Return to Ticket List";
     } else {
-      currentlyDisplaying = <TicketList />;
+      currentlyDisplaying = <TicketList ticketList={this.state.mainTicketList} />;
       buttonText = "Add New Ticket";
     }
 
