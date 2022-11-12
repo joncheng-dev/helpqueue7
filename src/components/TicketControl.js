@@ -11,6 +11,12 @@ class TicketControl extends React.Component {
     };
   }
 
+  handleClick = () => {
+    this.setState((prevState) => ({
+      formShowing: !prevState.formShowing,
+    }));
+  };
+
   handleAddingNewTicket = (newTicket) => {
     const updatedMainTicketList = this.state.mainTicketList.concat(newTicket);
     this.setState({
@@ -33,7 +39,7 @@ class TicketControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyDisplaying}
-        <button>{buttonText}</button>
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
