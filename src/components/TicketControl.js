@@ -14,6 +14,11 @@ class TicketControl extends React.Component {
   }
 
   handleClick = () => {
+    if (this.state.selected !== null) {
+      this.setState({
+        selected: null,
+      });
+    }
     this.setState((prevState) => ({
       formShowing: !prevState.formShowing,
     }));
@@ -31,7 +36,6 @@ class TicketControl extends React.Component {
     const selectedTicket = this.state.mainTicketList.filter((ticket) => ticket.id === id)[0];
     this.setState({
       selected: selectedTicket,
-      formShowing: false,
     });
   };
 
