@@ -12,6 +12,7 @@ function TicketDetail(props) {
       <p>
         <em>{ticket.issue}</em>
       </p>
+      <button onClick={props.onClickingEdit}>Edit Ticket</button>
       <hr />
     </React.Fragment>
   );

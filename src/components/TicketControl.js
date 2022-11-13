@@ -10,6 +10,7 @@ class TicketControl extends React.Component {
       formShowing: false,
       mainTicketList: [],
       selected: null,
+      editing: false,
     };
   }
 
@@ -40,12 +41,18 @@ class TicketControl extends React.Component {
     });
   };
 
+  handleEditClick = () => {
+    this.setState({
+      editing: true,
+    });
+  };
+
   render() {
     let currentlyDisplaying = null;
     let buttonText = null;
 
     if (this.state.selected !== null) {
-      currentlyDisplaying = <TicketDetail ticket={this.state.selected} />;
+      currentlyDisplaying = <TicketDetail ticket={this.state.selected} onClickingEdit={this.handleEditClick} />;
       buttonText = "Return to Ticket List";
     } else if (this.state.formShowing) {
       currentlyDisplaying = <NewTicketForm onClickingAddNewTicket={this.handleAddingNewTicket} />;
