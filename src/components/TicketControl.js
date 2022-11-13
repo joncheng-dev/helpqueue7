@@ -18,10 +18,11 @@ class TicketControl extends React.Component {
       this.setState({
         selected: null,
       });
+    } else {
+      this.setState((prevState) => ({
+        formShowing: !prevState.formShowing,
+      }));
     }
-    this.setState((prevState) => ({
-      formShowing: !prevState.formShowing,
-    }));
   };
 
   handleAddingNewTicket = (newTicket) => {
